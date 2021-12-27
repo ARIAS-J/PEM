@@ -1,0 +1,11 @@
+{% extends 'layout.html' %} {% block title %}Add Categoria{% endblock title %}
+
+{% block container %}
+
+<form method="post">
+    {% csrf_token %}
+    <input type="text" name="addcategorias" id="addcategorias" placeholder="Categoria">
+    <button type="submit">Añadir categoria</button>
+</form>
+
+{% endblock container %}

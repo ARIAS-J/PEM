@@ -1,0 +1,32 @@
+{% extends 'layout.html' %} {% block title %}Home{% endblock title %}
+
+{% block container %}
+
+<form method="post">
+    {% csrf_token %}
+    <div class="buttons">
+        <ul>
+            <li><a href="#">Registro</a></li>
+            <li><a href="#">Categorias</a></li>
+            <li><a href="#">Historial</a></li>
+        </ul>
+    </div>
+
+    <input type="number" name="monto" id="monto" placeholder="Monto">
+    <label>Categoria</label>
+    <select name="categorias" id="categorias">
+        {% for categoria in categorias  %}
+        <option value="{{categoria.name}}">{{categoria.nombre}}</option>
+        {% endfor %}
+    </select>
+
+    <input type="radio" name="tipo" id="tipo" value="Normal">Normal
+    <input type="radio" name="tipo" id="constante" value="Constante">Constante
+
+    <textarea name="descripcion" id="descripcion" cols="30" rows="10" placeholder="Descripcion"></textarea>
+
+    <input type="date" name="datetime" id="datetime">
+    <button type="submit">Registrar</button>
+</form>
+
+{% endblock container %}
