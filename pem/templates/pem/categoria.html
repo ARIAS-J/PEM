@@ -2,10 +2,32 @@
 
 {% block container %}
 
-<form method="post">
-    {% csrf_token %}
-    <input type="text" name="addcategorias" id="addcategorias" placeholder="Categoria">
-    <button type="submit">Añadir categoria</button>
-</form>
+<div class="container">
+    <div class="row">
+
+        <div class="col">
+
+            <a href="/" class="btn btn-primary mt-5">Regresar</a>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+            <form method="post"></form>
+                {% csrf_token %}
+
+                <div class="col">
+                    <input class="form-control mt-5" type="text" name="addcategorias" id="addcategorias" placeholder="Categoria">
+                </div>
+                
+                <div class="col">
+                    <button class="btn btn-primary mt-5" type="submit">Añadir categoria</button>
+                </div>
+                
+            </form>
+    </div>
+</div>
+
 
 {% endblock container %}

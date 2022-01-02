@@ -11,7 +11,7 @@ class User(models.Model):
     password = models.CharField(max_length=250, null=True)
 
     #Relationship
-    registro = models.ForeignKey("Registro", on_delete=models.CASCADE)
+    
 
     def __str__(self):
         return self.nombre
@@ -31,7 +31,7 @@ class Registro(models.Model):
     descripcion = models.CharField(max_length=1000, null=True)
     tipo = models.CharField(max_length=20, null=True)
     fecha = models.CharField(max_length=250, null=True)
-    categoria = models.CharField(max_length=250, null=True)
 
-    def __str__(self) -> str:
-        return self.id
+    #Relationship
+    user = models.ForeignKey("User", on_delete=models.CASCADE, null=True, blank=True)
+    categoria = models.ForeignKey("Categoria", on_delete=models.CASCADE, null=True, blank=True)

@@ -1,32 +1,83 @@
-{% extends 'layout.html' %} {% block title %}Home{% endblock title %}
+{% extends 'layout.html' %} {% block title %}Registro{% endblock title %}
 
 {% block container %}
 
-<form method="post">
-    {% csrf_token %}
-    <div class="buttons">
-        <ul>
-            <li><a href="#">Registro</a></li>
-            <li><a href="#">Categorias</a></li>
-            <li><a href="#">Historial</a></li>
-        </ul>
+<div class="container mt-5">
+    <div class="row">
+        <form method="post">
+            {% csrf_token %}
+            <div class="buttons">
+                <div class="row mb-5">
+                    <div class="col"><a href="/" class="btn btn-primary">Registro</a></div>
+                    <div class="col"><a href="categoria" class="btn btn-primary">Categorias</a></div>
+                    <div class="col"><a href="historial" class="btn btn-primary">Historial</a></div>
+                </div>
+            </div>
+
+            <div class="row mt-3 mb-3">
+
+                <div class="col">
+                    <div class="input-group">
+                        <span class="input-group-text">$</span>
+                        <input class="form-control" type="number" step=".01" name="monto" id="monto" placeholder="Monto">
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="input-group">
+                        <span class="input-group-text">Categoria</span>
+                        <select class="form-select" name="categoria" id="category">
+                            {% for categoria in categorias %}
+                            <option value="{{categoria.nombre}}">{{categoria.nombre}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col">
+                    <label class="form-label">Normal</label>
+                    <div class="input-group">
+                        <div class="input-group-text">
+                            <input class="form-check-input mt-0" type="radio" name="tipo" id="tipo" value="Normal">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <label class="form-label">Constante</label>
+                    <div class="input-group">
+                        <div class="input-group-text">
+                            <input class="form-check-input mt-0" type="radio" name="tipo" id="constante"
+                                value="Constante">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="row">
+                <div class="col">
+                    <textarea class="form-control mt-3 mb-3" name="descripcion" id="descripcion" cols="30" rows="10"
+                        placeholder="Descripcion"></textarea>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <input class="form-control" type="date" name="datetime" id="datetime">
+                </div>
+
+                <div class="col">
+                    <button class="btn btn-primary" type="submit">Registrar</button>
+                </div>
+            </div>
+        </form>
     </div>
-
-    <input type="number" name="monto" id="monto" placeholder="Monto">
-    <label>Categoria</label>
-    <select name="categorias" id="categorias">
-        {% for categoria in categorias  %}
-        <option value="{{categoria.name}}">{{categoria.nombre}}</option>
-        {% endfor %}
-    </select>
-
-    <input type="radio" name="tipo" id="tipo" value="Normal">Normal
-    <input type="radio" name="tipo" id="constante" value="Constante">Constante
-
-    <textarea name="descripcion" id="descripcion" cols="30" rows="10" placeholder="Descripcion"></textarea>
-
-    <input type="date" name="datetime" id="datetime">
-    <button type="submit">Registrar</button>
-</form>
+</div>
 
 {% endblock container %}
