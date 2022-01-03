@@ -14,7 +14,6 @@ def home(request):
     if request.method == 'POST':
         monto = request.POST['monto']
         descripcion = request.POST['descripcion']
-        tipo = request.POST['tipo']
         fecha = request.POST['datetime']
         nombre_categoria = request.POST['categoria']
         
@@ -26,7 +25,7 @@ def home(request):
         if not monto:
             messages.Error(request, 'El monto es requerido')
         else:
-            Registro.objects.create(monto = monto, descripcion = descripcion, tipo = tipo, fecha = fecha, categoria = categoria)
+            Registro.objects.create(monto = monto, descripcion = descripcion, fecha = fecha, categoria = categoria)
         return render(request, 'pem/home.html', context)
     
     return render(request, 'pem/home.html', context)
@@ -46,3 +45,7 @@ def historial(request):
     context = {'historials': historials}
     
     return render(request, 'pem/historial.html', context)
+
+def Constante_registro(request):
+    
+    return render(request, 'pem/home.html')

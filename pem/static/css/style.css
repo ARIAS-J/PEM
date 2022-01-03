@@ -1,0 +1,14 @@
+.btn-primary{
+    background: linear-gradient(90deg, rgba(26,167,236,1) 0%, rgba(30,47,151,1) 100%);
+    border: none;
+    width: 10rem;
+}
+
+#main-form{
+    background-color: #F2F2F2;
+}
+
+p{
+    color: #212529;
+    opacity: 70%;
+}
