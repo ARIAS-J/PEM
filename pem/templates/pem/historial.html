@@ -14,20 +14,20 @@
         <div class="col">
             <table class="table mt-5">
                 <tr>
-                    <th scope="col">Monto</th>
-                    <th scope="col">Descripcion</th>
-                    <th scope="col">Categoria</th>
-                    <th scope="col">Tipo</th>
-                    <th scope="col">Fecha</th>
+                    <th class="text-primary" scope="col">Monto</th>
+                    <th class="text-primary" scope="col">Descripcion</th>
+                    <th class="text-primary" scope="col">Categoria</th>
+                    <th class="text-primary" scope="col">Tipo</th>
+                    <th class="text-primary" scope="col">Fecha</th>
                 </tr>
                 {% for historial in historials  %}
                 <tr>
                     
-                    <th scope="row">{{historial.monto}}</th>
-                    <th scope="row">{{historial.descripcion}}</th>
-                    <th scope="row">{{historial.categoria}}</th>
-                    <th scope="row">{{historial.tipo}}</th>
-                    <th scope="row">{{historial.fecha}}</th>
+                    <th class="fw-normal" scope="row">{{historial.monto}}$</th>
+                    <th class="fw-normal" scope="row">{{historial.descripcion}}</th>
+                    <th class="fw-normal" scope="row">{{historial.categoria}}</th>
+                    <th class="fw-normal" scope="row">{{historial.tipo}}</th>
+                    <th class="fw-normal" scope="row">{{historial.fecha}}</th>
                     
                     
                 </tr>
