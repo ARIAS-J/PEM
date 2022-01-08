@@ -4,31 +4,34 @@
 
 <div class="container d-flex justify-content-center">
 
-    <div class="row">
+    <div class="categoria-form mt-3 px-3 py-3 rounded">
+        <div class="row">
 
-        <div class="col">
-
-            <a href="/" class="btn btn-primary mt-3 me-3">Regresar</a>
-
+            <div class="col-12 d-flex justify-content-center">
+    
+                <a href="{% url 'home' %}" class="btn btn-primary me-3">Regresar</a>
+    
+            </div>
+    
         </div>
-
+    
+        <form method="post" class="rounded mt-3 ">
+            {% csrf_token %}
+    
+            <div class="row">
+                <div class="col-6 d-flex justify-content-center">
+                    <input class="form-control" type="text" name="addcategorias" id="addcategorias"
+                        placeholder="Categoria">
+                </div>
+    
+                <div class="col d-flex justify-content-center">
+                    <button class="btn btn-primary" type="submit">Añadir categoria</button>
+                </div>
+            </div>
+    
+        </form>
     </div>
 
-    <form method="post" class="rounded mt-3 ">
-        {% csrf_token %}
-
-        <div class="row">
-            <div class="col-6 d-flex justify-content-center">
-                <input class="form-control" type="text" name="addcategorias" id="addcategorias"
-                    placeholder="Categoria">
-            </div>
-
-            <div class="col d-flex justify-content-center">
-                <button class="btn btn-primary" type="submit">Añadir categoria</button>
-            </div>
-        </div>
-
-    </form>
 </div>
 
 
