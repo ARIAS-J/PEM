@@ -1,7 +1,8 @@
 from django.contrib import messages
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.hashers import make_password
 from .models import Registro, Categoria, User
 
 # Create your views here.
@@ -9,46 +10,51 @@ from .models import Registro, Categoria, User
 def register(request):
     
     if request.method == 'POST':
-        nombre = request.POST['nombre']
-        apellido = request.POST['apellido']
-        email = request.POST['email']
-        password = request.POST['password']
-        passwordconfirm = request.POST['passwordconfirm']
+        nombre = request.POST.get('nombre')
+        apellido = request.POST.get('apellido')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        passwordconfirm = request.POST.get('passwordconfirm')
+        
+        #encrypt password
+        password_encrypt = make_password(password)
         
         if not email:
             messages.error(request, 'El email es requerido.')
         else:
             if not User.objects.filter(email = email).exists() and password == passwordconfirm:
                 
-                User.objects.create(name = nombre, apellido = apellido, email = email, password = password)
+                User.objects.create(name = nombre, apellido = apellido, email = email, password = password_encrypt)
                 messages.success(request, 'Cuenta registrada correctamente!')
-                return render(request, 'registration/login.html')
+                return render(request, 'accounts/login.html')
             else: 
                 messages.error(request, 'Ya existe una cuenta con este email o la contraseña no coincide.')
-                return render(request, 'pem/register.html')
-    return render(request, 'pem/register.html')
+                return render(request, 'accounts/register.html')
+    return render(request, 'accounts/register.html')
+
 
 def loginpage(request):
     
     if request.method == 'POST':
         
         email = request.POST.get('email')
+        print('aqui esta el email ===>> ', email)
         password = request.POST.get('password')
-        
-        # user = authenticate(username = email, password = password)
-        user = authenticate(email = email, password = password)
-        print("User aqui ====>>>>>", user)
-        if user is not None:
-            login(request, user)
+        print('aqui esta el password ===>> ', password)
+        customers = authenticate(request, email = email, password = password)
+        print('aqui esta el user =====>>>',customers)
+        if customers is not None:
+            login(request, customers)
             return redirect('home')
         else:
             messages.info(request, 'Email incorrecto o contraseña incorrecta.')
             return redirect('login')
-        
-    return render(request, 'registration/login.html')
+    context = {}
+    return render(request, 'accounts/login.html', context)
 
 
 def logoutpage(request):
+    logout(request)
     return redirect('login')
 
 
