@@ -60,7 +60,9 @@ def logoutpage(request):
 
 @login_required
 def home(request):
-    categorias = Categoria.objects.all()
+    current_user = request.user
+    
+    categorias = Categoria.objects.filter(user = current_user)
     
     context = {
         'categorias': categorias
@@ -72,6 +74,8 @@ def home(request):
         fecha = request.POST['datetime']
         nombre_categoria = request.POST['categoria']
         
+        
+
         try:
             categoria = Categoria.objects.get(nombre = nombre_categoria)
         except Categoria.DoesNotExist:
@@ -89,16 +93,19 @@ def home(request):
 @login_required
 def categoria(request):
     
+    current_user = request.user
+    
     if request.method == 'POST':
         categoria = request.POST['addcategorias']
-        Categoria.objects.create(nombre = categoria)
+        Categoria.objects.create(nombre = categoria, user = current_user)
     
     return render(request, 'pem/categoria.html')
 
 
 @login_required
 def historial(request):
-    historials = Registro.objects.all()
+    current_user = request.user
+    historials = Registro.objects.filter(user = current_user)
     
     # print(historials[0].categoria)
     context = {'historials': historials}

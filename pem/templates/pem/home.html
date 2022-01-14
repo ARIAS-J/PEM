@@ -4,46 +4,52 @@
 
 <div class="container mt-3 d-flex justify-content-center">
 
-    <!-- Modal
-    <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Añadir Categorias</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form method="post" class="rounded mt-3 ">
-                        {% csrf_token %}
-                
-                        <div class="row">
-                            <div class="col d-flex justify-content-center">
-                                <input class="form-control" type="text" name="addcategorias" id="addcategorias"
-                                    placeholder="Categoria">
-                            </div>
-
-                            <div class="col d-flex justify-content-center"><button type="submit" class="btn btn-primary">Añadir Categoria</button></div>
-                        </div>
-                
-                    </form>
+    <div class="profile-content p-3 rounded-3" id="form" style="width: 575px;">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="profile-photo">
+                    <img style="width: 130px;
+                    height: 130px;
+                    border-radius: 75px;"
+                        src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?cs=srgb&dl=pexels-pixabay-220453.jpg&fm=jpg"
+                        alt="">
                 </div>
             </div>
-        </div>
-    </div> -->
-        <a href="{% url 'logout' %}"> Cerrar sesion</a>
 
-    <form method="post" class="rounded-3" id="main-form">
+            <div class="col-sm-6">
+                <div class="profile-name">
+                    <p style="background: linear-gradient(90deg, rgba(26,167,236,1) 0%, rgba(30,47,151,1) 100%); 
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent; 
+                    font-weight:500;">Joel Arias De La Cruz</p>
+
+                    <a href="#" style="text-decoration: none; font-weight:500; color:#353535; opacity:50%;">Profile
+                        Settings <i class="fas fa-user-cog"></i></a>
+                </div>
+            </div>
+
+            <div class="col">
+                <a href="{% url 'logout' %}" style="text-decoration: none; color:#353535; opacity:50%; font-weight:500">
+                    Cerrar sesion</a>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="container mt-3 d-flex justify-content-center">
+
+    <form method="post" id="main-form">
         {% csrf_token %}
 
-        <div class="container">
+        <div class="container p-4 rounded-3" id="form">
 
             <div class="buttons d-flex justify-content-center">
+
                 <div class="row mt-3 mb-3">
                     <div class="col"><a href="{% url 'home' %}" class="btn btn-primary">Registro</a></div>
-                    <div class="col">
-                        <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal">Categoria</button> -->
-                        <a href="{% url 'categoria' %}" class="btn btn-primary">Categoria</a>
-                    </div>
+                    <div class="col"><a href="{% url 'categoria' %}" class="btn btn-primary">Categoria</a></div>
                     <div class="col"><a href="{% url 'historial' %}" class="btn btn-primary">Historial</a></div>
                 </div>
             </div>
@@ -79,12 +85,12 @@
                 </div>
             </div>
 
-            <div class="row mb-3">
-                <div class="col-8 d-flex justify-content-center">
+            <div class="row">
+                <div class="col-8 d-flex justify-content-center mb-3">
                     <input class="form-control" type="date" name="datetime" id="datetime">
                 </div>
 
-                <div class="col d-flex justify-content-center">
+                <div class="col d-flex justify-content-center mb-3">
                     <button class="btn btn-primary" type="submit">Registrar</button>
                 </div>
             </div>

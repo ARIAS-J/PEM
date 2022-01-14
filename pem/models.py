@@ -60,6 +60,10 @@ class Categoria(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True, name='id')
     nombre = models.CharField(max_length=250, null=True,)
     
+    
+    #Relationship
+    user = models.ForeignKey("User", on_delete=models.CASCADE, null=True, blank=True)
+    
     def __str__(self):
         return self.nombre
 
