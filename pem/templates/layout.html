@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-{% load static %}
 <html lang="en">
 
 <head>
@@ -11,7 +10,54 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{% static 'css/style.css '%}">
+    <style>
+        #logout-btn {
+            text-decoration: none;
+            color: #949494;
+            font-weight: 500;
+            border: solid #949494 2px;
+            padding: 0.4rem;
+            border-radius: 8px;
+        }
+
+        #logout-btn:hover {
+            background: linear-gradient(90deg, rgba(26, 167, 236, 1) 0%, rgba(30, 47, 151, 1) 100%);
+            border: none;
+            color: #fff;
+            padding: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, rgba(26, 167, 236, 1) 0%, rgba(30, 47, 151, 1) 100%);
+            border: none;
+            width: 10rem;
+            font-weight: 500;
+        }
+
+        .profile-name {
+            background: linear-gradient(90deg, rgba(26, 167, 236, 1) 0%, rgba(30, 47, 151, 1) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 500;
+        }
+
+        #photo {
+            object-fit: cover;
+            width: 130px;
+            height: 130px;
+            border-radius: 75px;
+        }
+
+        .registro-form, #login-form, #register-form {
+            background: #F2F2F2;
+        }
+
+        #create-account{
+            color: #949494;
+            text-decoration: none;
+            font-weight: 500;
+        }
+    </style>
     <title>{% block title %}{% endblock title %}</title>
 </head>
 
