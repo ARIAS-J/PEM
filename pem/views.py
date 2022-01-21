@@ -69,10 +69,10 @@ def home(request):
     }
     
     if request.method == 'POST':
-        monto = request.POST['monto']
-        descripcion = request.POST['descripcion']
-        fecha = request.POST['datetime']
-        nombre_categoria = request.POST['categoria']
+        monto = request.POST.get('monto')
+        descripcion = request.POST.get('descripcion')
+        fecha = request.POST.get('datetime')
+        nombre_categoria = request.POST.get('categoria')
         
         
 
@@ -82,7 +82,7 @@ def home(request):
             categoria = None
 
         if not monto:
-            messages.Error(request, 'El monto es requerido')
+            messages.error(request, 'El monto es requerido')
         else:
             Registro.objects.create(monto = monto, descripcion = descripcion, fecha = fecha, categoria = categoria)
         return render(request, 'pem/home.html', context)

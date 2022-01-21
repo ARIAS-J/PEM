@@ -1,34 +1,35 @@
 {% extends 'layout.html' %} {% block title %}Login{% endblock title %}
 
 {% block container %}
-<div class="container d-flex justify-content-center">
+<div class="flex items-center justify-center h-screen">
 
-    <form method="post" class="mt-3 mb-3 rounded px-3" id="login-form">
+    <form method="post" class="bg-[#F2F2F2] w-[30rem] rounded-[20px] flex justify-center py-5 pr-3">
         {% csrf_token %}
 
-
-        <div class="row mt-3">
-            <div class="col">
-                <input class="form-control" type="email" name="email" id="email" placeholder="Email">
-            </div>
+        <div class="logo mx-3 items-center flex">
+            <img src="/static/PEM.png" alt="">
         </div>
 
-        <div class="row mt-3">
-            <div class="col">
-                <input class="form-control" type="password" name="password" id="password" placeholder="Password">
+        <div class="login-content">
+            <div class="mb-3">
+                <input class="px-2 py-1 w-max rounded border-2 w-[18.3rem] h-[3.2rem]" type="email" name="email"
+                    id="email" placeholder="Email">
             </div>
-        </div>
 
-
-        <div class="row mt-3 mb-3 ">
-            <div class="col d-flex justify-content-center">
-                <button class="btn btn-primary" type="submit">Ingresar</button>
+            <div class="mb-3">
+                <input class="px-2 py-1 w-max rounded border-2 w-[18.3rem] h-[3.2rem]" type="password" name="password"
+                    id="password" placeholder="Password">
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col pb-3 d-flex justify-content-center"><a id="create-account"
-                    href="{% url 'register' %}">Create an account</a></div>
+            <div class="mb-3">
+                <button
+                    class="px-5 py-1.5 bg-gradient-to-r from-[#1AA7EC] to-[#1E2F97] rounded-[8px] text-white font-medium w-full h-[3.2rem]"
+                    type="submit">Ingresar</button>
+            </div>
+
+            <div class="justify-center">
+                <a class="font-medium text-[#1D7DC2]" href="{% url 'register' %}">Create an account</a>
+            </div>
         </div>
 
     </form>
