@@ -6,6 +6,9 @@ from django.contrib.auth.hashers import make_password
 from .models import Registro, Categoria, User
 
 # Create your views here.
+def welcome(request):
+    
+    return render(request, 'pem/landingpage.html')
 
 def register(request):
     
@@ -38,11 +41,11 @@ def loginpage(request):
     if request.method == 'POST':
         
         email = request.POST.get('email')
-        print('aqui esta el email ===>> ', email)
+        
         password = request.POST.get('password')
-        print('aqui esta el password ===>> ', password)
+        
         customers = authenticate(request, email = email, password = password)
-        print('aqui esta el user =====>>>',customers)
+        
         if customers is not None:
             login(request, customers)
             return redirect('home')
@@ -74,8 +77,6 @@ def home(request):
         fecha = request.POST.get('datetime')
         nombre_categoria = request.POST.get('categoria')
         
-        
-
         try:
             categoria = Categoria.objects.get(nombre = nombre_categoria)
         except Categoria.DoesNotExist:
@@ -84,7 +85,7 @@ def home(request):
         if not monto:
             messages.error(request, 'El monto es requerido')
         else:
-            Registro.objects.create(monto = monto, descripcion = descripcion, fecha = fecha, categoria = categoria)
+            Registro.objects.create(monto = monto, descripcion = descripcion, fecha = fecha, categoria = categoria, user = current_user)
         return render(request, 'pem/home.html', context)
     
     return render(request, 'pem/home.html', context)
@@ -107,7 +108,6 @@ def historial(request):
     current_user = request.user
     historials = Registro.objects.filter(user = current_user)
     
-    # print(historials[0].categoria)
     context = {'historials': historials}
     
     return render(request, 'pem/historial.html', context)

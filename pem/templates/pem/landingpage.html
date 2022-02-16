@@ -1,0 +1,45 @@
+{% extends 'layout.html' %} {% block title %}Welcome to PEM{% endblock title %}
+
+{% block container %}
+<div class="btn-login-content w-full">
+    <div class="btn-login flex flex-row-reverse">
+        <a class="inline-block 
+    py-4 px-8  
+    font-bold
+    text-xl
+    text-center 
+    text-[#1D7DC2] 
+    rounded-t-lg 
+    border-b-2 
+    border-transparent 
+    hover:text-[#1D7DC2] 
+    hover:border-[#1D7DC2]" href="{% url 'login' %}">Login</a>
+    </div>
+</div>
+
+<div class="welcome-content flex items-center justify-center h-screen flex-col">
+
+    <div class="header">
+        <h1 class="text-[125px]"
+            style="font-family: 'Fredoka One', cursive; background: -webkit-linear-gradient(#1AA7EC, #1E2F97); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            Welcome To PEM</h1>
+    </div>
+
+    <div class="description-content items-center mb-8">
+        <p class="text-[1.25rem] px-[10rem] font-medium">PEM (Personal Expense Managment) is a webapp that helps us to
+            manage our
+            daily expenses, in a simple and fast way.</p>
+    </div>
+
+    <div class="btn-content items-center flex justify-center">
+
+        <a class="px-5 py-3.5 bg-gradient-to-r from-[#1AA7EC] to-[#1E2F97] rounded-[8px] text-white font-medium w-[13.3rem] h-[3.2rem] text-center"
+            href="{% url 'register' %}">GET STARTED</a>
+
+    </div>
+
+</div>
+
+
+
+{% endblock container %}

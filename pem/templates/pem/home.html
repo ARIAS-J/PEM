@@ -5,20 +5,16 @@
 
 <div class="content flex items-center justify-center h-screen flex-col">
 
-    <div class="profile-content bg-[#F2F2F2] px-8 py-4 mb-3 w-[40rem] rounded-[20px] flex items-center gap-5 ">
+    <div class="profile-content bg-[#FFFFFF] px-8 py-4 mb-3 w-[40rem] rounded-[20px] flex items-center gap-5 ">
 
-        <div class="profile-photo-content rounded-full w-32 h-32 border-4 border-[#1D7DC2] justify-center">
-                <img src="" id="photo" alt="" class="h-[100%] w-[100%]">
-                <input type="file" name="profile-image" id="profile-photo" class="hidden">
-                <label id="btnupload" for="profile-photo" class="p-2 bg-[#000] opacity-[50%] text-[#fff] font-medium cursor-pointer">Choose Photo</label>
-        </div>
+
+        <img src="/static/PEM.svg" id="photo" alt="" class="h-[8rem] w-[8rem]">
 
         <div class="profile-data-content w-max flex flex-1 justify-between items-center">
-            <div class="profile-text  w-[10rem]">
-                <p class="font-bold">Joel Arias</p>
-                <a href="#" class="text-[#353535] font-medium opacity-50">Profile Settings</a>
+            <div class="profile-text  ml-4 w-[10rem]">
+                <p class="font-bold text-[#1D7DC2]">{{user.name}} {{user.apellido}}</p>
             </div>
-    
+
             <div class="profile-logout">
                 <a id="logout-btn" class="font-medium text-[#353535] opacity-50" href="{% url 'logout' %}">
                     Cerrar sesion</a>
@@ -26,7 +22,8 @@
         </div>
     </div>
 
-    <div class="registration-form bg-[#F2F2F2] flex px-8 py-4 rounded-[20px] w-[40rem] h-[30rem] flex flex-row justify-center">
+    <div
+        class="registration-form bg-[#FFFFFF] flex px-8 py-4 rounded-[20px] w-[40rem] h-[30rem] flex flex-row justify-center">
 
         <form method="post">
             {% csrf_token %}
@@ -35,67 +32,64 @@
 
                 <ul class="flex flex-wrap -mb-px mb-4" id="tabs" data-tabs-toggle="#tabscontent" role="tablist">
 
-                    <li class="mr-2" role="presentation"><button type="button" type="button" href="{% url 'home' %}" class="
+                    <li class="mr-2" role="presentation"><a type="button" href="{% url 'home' %}" class="
                         inline-block 
                         py-4 px-4 
                         text-sm 
-                        font-medium 
+                        font-bold 
                         text-center 
-                        text-[#8A8A8A] 
+                        text-[#1D7DC2] 
                         rounded-t-lg 
                         border-b-2 
-                        border-transparent 
-                        hover:text-[#8A8A8A] 
-                        hover:border-[#8A8A8A] 
-                        dark:text-[#1D7DC2] 
-                        dark:hover:text-[#1D7DC2] active" id="registro-tab" data-tabs-target="" role="tab" aria-controls="registro" aria-selected="true">Registro</button></li>
+                        border-transparent
+                        active" id="registro-tab" data-tabs-target="" role="tab" aria-controls="registro"
+                            aria-selected="true">Registro</a></li>
 
-                    <li class="mr-2" role="presentation"><button type="button" href="{% url 'categoria' %}" class="
+                    <li class="mr-2" role="presentation"><a href="{% url 'categoria' %}" class="
                         inline-block 
                         py-4 px-4 
                         text-sm 
-                        font-medium 
+                        font-bold 
                         text-center 
                         text-[#8A8A8A] 
                         rounded-t-lg 
                         border-b-2 
                         border-transparent 
-                        hover:text-[#8A8A8A] 
-                        hover:border-[#8A8A8A] 
-                        dark:text-[#1D7DC2] 
-                        dark:hover:text-[#1D7DC2]" id="categoria-tab" data-tabs-target="{% url 'categoria' %}" role="tab" aria-controls="categoria" aria-selected="false">Categoria</button></li>
+                        hover:text-[#1D7DC2] 
+                        hover:border-[#1D7DC2]" id="categoria-tab" data-tabs-target="{% url 'categoria' %}" role="tab"
+                            aria-controls="categoria" aria-selected="false">Categoria</a></li>
 
-                    <li class="mr-2" role="presentation"><button type="button" href="{% url 'historial' %}" class="
+                    <li class="mr-2" role="presentation"><a href="{% url 'historial' %}" class="
                         inline-block 
                         py-4 px-4 
                         text-sm 
-                        font-medium 
+                        font-bold 
                         text-center 
                         text-[#8A8A8A] 
                         rounded-t-lg 
                         border-b-2 
                         border-transparent 
-                        hover:text-[#8A8A8A] 
-                        hover:border-[#8A8A8A] 
-                        dark:text-[#1D7DC2] 
-                        dark:hover:text-[#1D7DC2]" id="historial-tab" data-tabs-target="" role="tab" aria-controls="historial" aria-selected="false">Historial</a></li>
+                        hover:text-[#1D7DC2] 
+                        hover:border-[#1D7DC2]" id="historial-tab" data-tabs-target="" role="tab"
+                            aria-controls="historial" aria-selected="false">Historial</a></li>
 
                 </ul>
 
                 <div class="registro-btn-content">
-                    
+
                 </div>
                 <div class="categoria-btn-content">
-                    
+
                 </div>
                 <div class="historial-btn-content">
-                    
+
                 </div>
 
             </div>
 
             <div class="inputs-content-number-select mb-3">
-                <input class="px-2 py-1 w-max rounded border-2 w-[18.3rem] h-[3.2rem] mr-4" type="number" step=".01" name="monto" id="monto" placeholder="Monto">
+                <input class="px-2 py-1 w-max rounded border-2 w-[18.3rem] h-[3.2rem] mr-4" type="number" step=".01"
+                    name="monto" id="monto" placeholder="Monto">
 
                 <select class="px-2 py-1 w-48 rounded border-2 w-[18.2rem] h-[3.2rem]" name="categoria" id="category">
                     {% for categoria in categorias %}
@@ -105,19 +99,22 @@
             </div>
 
             <div class="input-content-textarea mb-2">
-                <textarea class="px-2 py-1 w-full rounded-md border-2 w-[37.9rem]" name="descripcion" id="descripcion" cols="30" rows="10"
-                    placeholder="Descripcion"></textarea>
+                <textarea class="px-2 py-1 w-full rounded-md border-2 w-[37.9rem]" name="descripcion" id="descripcion"
+                    cols="30" rows="10" placeholder="Descripcion"></textarea>
             </div>
 
 
             <div class="input-content-datetime-button flex">
 
                 <div class="datetime">
-                    <input class="px-2 py-1 rounded-md border-2 w-[18.3rem] h-[3.3rem] mr-4" type="date" name="datetime" id="datetime">
+                    <input class="px-2 py-1 rounded-md border-2 w-[18.3rem] h-[3.3rem] mr-4" type="date" name="datetime"
+                        id="datetime">
                 </div>
 
                 <div class="btn-registration">
-                    <button class="px-5 py-1.5 bg-gradient-to-r from-[#1AA7EC] to-[#1E2F97] rounded-[8px] text-white font-medium w-[18.3rem] h-[3.2rem]" type="submit">Registrar</button>
+                    <button
+                        class="px-5 py-1.5 bg-gradient-to-r from-[#1AA7EC] to-[#1E2F97] rounded-[8px] text-white font-medium w-[18.3rem] h-[3.2rem]"
+                        type="submit">Registrar</button>
                 </div>
 
             </div>
@@ -129,11 +126,4 @@
 </div>
 
 
-
-
-
-
 {% endblock container %}
-
-
-    

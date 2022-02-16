@@ -2,48 +2,41 @@
 
 {% block container %}
 
-<div class="container d-flex justify-content-center">
+<div class="categoria-form flex items-center justify-center h-screen">
 
-    <div class="categoria-form mt-3 px-3 py-3 rounded">
-        <div class="row">
+    <form method="post" class="w-[43.6rem] h-[16.8rem] bg-[#FFFFFF] rounded-[20px] flex items-center justify-center">
+        {% csrf_token %}
 
-            <div class="col-12 d-flex justify-content-center">
-    
-                <a href="{% url 'home' %}" class="btn btn-primary me-3">Regresar</a>
-    
-            </div>
-    
+        <div class="btn mx-3">
+            <a class="inline-block 
+            px-2 
+            text-lg 
+            font-bold 
+            text-center 
+            text-[#8A8A8A] 
+            rounded-t-lg 
+            border-b-2 
+            border-transparent 
+            hover:text-[#1D7DC2] 
+            hover:border-[#1D7DC2]" href="{% url 'home' %}">Return</a>
         </div>
-    
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
-            <div class="modal-dialog">
-        
-                <div class="modal-content">
-        
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Añadir nueva categoria</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-        
-                    <div class="modal-body">
-                        <form method="post" class="rounded mt-3 ">
-                            {% csrf_token %}
-                            <input class="form-control" type="text" name="addcategorias" id="addcategorias"
-                                placeholder="Categoria">
-                            <button class="btn btn-primary" type="submit">Añadir categoria</button>
-                        </form>
-                    </div>
-        
-                    <div class="modal-footer">
-        
-                    </div>
-                </div>
-            </div>
+        <div class="container">
+            <input class="
+            px-2 
+            py-1 
+            w-[22.563rem] 
+            rounded-[8px]
+            border-2 
+            h-[3.2rem]" type="text" name="addcategorias" id="addcategorias" placeholder="Categoria">
+
+            <button
+                class="px-5 py-1.5 bg-gradient-to-r from-[#1AA7EC] to-[#1E2F97] rounded-[8px] text-white font-medium h-[3.1rem] w-[12.75rem]"
+                type="submit">Añadir categoria</button>
         </div>
-    </div>
+
+    </form>
 
 </div>
-
 
 {% endblock container %}

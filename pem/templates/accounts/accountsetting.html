@@ -1,0 +1,62 @@
+{% extends 'layout.html' %} {% block title %}Home{% endblock title %}
+
+{% block container %}
+<div class="setting-content flex items-center justify-center h-screen">
+
+    <form method="post" class="bg-[#FFFFFF] w-[40rem] rounded-[20px] items-center justify-center p-8">
+        {% csrf_token %}
+        
+        <div class="update-date-content mx-8">
+            <input class="
+                    px-2 
+                    py-1 
+                    w-full 
+                    rounded-[8px]
+                    border-2 
+                    h-[3.2rem] mb-3" type="text" name="nombre" id="nombre" placeholder="Nombre">
+            <input class="
+                    px-2 
+                    py-1 
+                    rounded 
+                    border-2 
+                    w-full 
+                    h-[3.2rem] mb-3" type="text" name="apellido" id="apellido" placeholder="Apellido">
+            <input class="
+                    px-2 
+                    py-1 
+                    rounded 
+                    border-2 
+                    w-full 
+                    h-[3.2rem] mb-3" type="email" name="email" id="email" placeholder="Email">
+            <input class="
+                    px-2 
+                    py-1 
+                    rounded 
+                    border-2 
+                    w-full 
+                    h-[3.2rem] mb-3" type="password" name="password" id="password" placeholder="Password">
+
+            <label class="inline-block" id="btnupload">
+                <span class="sr-only">Choose profile photo</span>
+                <input id="profile-photo" name="profile-photo" type="file" class="inline-block w-full text-sm text-slate-500
+                                file:mr-3 file:py-2 file:px-4
+                                file:rounded-full file:border-0
+                                file:text-sm file:font-semibold
+                                file:bg-[#1D7DC2] file:text-[#fff]
+                                hover:file:bg-[#1D7DC2]
+                                file:cursor-pointer" />
+            </label>
+
+            <div class="flex items-center justify-center mb-3">
+                <img class="h-16 w-16 object-cover rounded-full" id="photo"/>
+            </div>
+
+
+            <div class="btn flex items-center justify-center">
+                <button type="submit"
+                    class="px-5 py-1.5 bg-gradient-to-r from-[#1AA7EC] to-[#1E2F97] rounded-[8px] text-white font-medium w-full h-[3.2rem]">Update</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock container %}

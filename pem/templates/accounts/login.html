@@ -3,10 +3,10 @@
 {% block container %}
 <div class="flex items-center justify-center h-screen">
 
-    <form method="post" class="bg-[#F2F2F2] w-[30rem] rounded-[20px] flex justify-center py-5 pr-3">
+    <form method="post" class="bg-[#FFFFFF] w-[30rem] rounded-[20px] flex justify-center p-4">
         {% csrf_token %}
 
-        <div class="logo mx-3 items-center flex">
+        <div class="logo pr-3 items-center flex">
             <img src="/static/PEM.png" alt="">
         </div>
 
@@ -27,7 +27,7 @@
                     type="submit">Ingresar</button>
             </div>
 
-            <div class="justify-center">
+            <div class="created-account">
                 <a class="font-medium text-[#1D7DC2]" href="{% url 'register' %}">Create an account</a>
             </div>
         </div>
