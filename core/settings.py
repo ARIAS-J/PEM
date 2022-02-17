@@ -81,11 +81,11 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': 'localhost',
+        'HOST': 'http://sql113.epizy.com/',
         'PORT': '3306',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'NAME': 'pem',
+        'USER': 'sql113.epizy.com',
+        'PASSWORD': 'GWt6tJu3kWyD',
+        'NAME': 'epiz_31087524_XXX',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
         }
