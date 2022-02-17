@@ -161,4 +161,4 @@ AUTHENTICATION_BACKENDS = [
     'pem.auth.backend.CustomBackend',
 ]
 
-CSRF_TRUSTED_ORIGINS = ['pem-dj.herokuapp.com']
+CSRF_TRUSTED_ORIGINS = ['https://pem-dj.herokuapp.com']
