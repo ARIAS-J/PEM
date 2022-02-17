@@ -1,4 +1,3 @@
-from tokenize import blank_re
 from django.db import models
 from django.contrib.auth.models import  AbstractUser, UserManager
 from django.contrib.auth.models import PermissionsMixin
@@ -41,7 +40,7 @@ class UserManager(BaseUserManager):
 
 class User(AbstractUser):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True, name='id')
-    name = models.CharField(max_length=250, null=True)
+    name = models.CharField(max_length=250, null=True )
     apellido = models.CharField(max_length=250, null=True)
     email = models.EmailField(max_length=255, unique=True)
     password = models.CharField(max_length=250, null=True)
