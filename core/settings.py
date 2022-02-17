@@ -160,3 +160,5 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'pem.auth.backend.CustomBackend',
 ]
+
+CSRF_TRUSTED_ORIGINS = ['pem-dj.herokuapp.com']
