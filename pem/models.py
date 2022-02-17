@@ -63,7 +63,7 @@ class Categoria(models.Model):
     
     
     #Relationship
-    
+    user = models.ForeignKey("User", on_delete=models.CASCADE, null=True, blank=True)
     
     def __str__(self):
         return self.nombre
@@ -76,5 +76,5 @@ class Registro(models.Model):
     fecha = models.CharField(max_length=250, null=True)
 
     #Relationship
-    
+    user = models.ForeignKey("User", on_delete=models.CASCADE, null=True, blank=True)
     categoria = models.ForeignKey("Categoria", on_delete=models.CASCADE, null=True, blank=True)
