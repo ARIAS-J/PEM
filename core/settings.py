@@ -12,9 +12,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 import os
 from pathlib import Path
-
+from dotenv import load_dotenv
 from django.contrib import messages
-
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,8 +24,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-e+vjlz-3tl)apiupp#_&8q)xrj(iqr)2a0f14blvx(ke628i$g'
-
+SECRET_KEY = os.environ.get("SECRETKEY")
+print(os.environ.get("PASSWORD"), "AQUI ESTA EL PASSWORD >>>>")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -83,11 +83,11 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': 'blul1t7qvijlkeuv3xo2-mysql.services.clever-cloud.com',
-        'PORT': '3306',
-        'USER': 'uycfwgklaczgxyan',
-        'PASSWORD': 'wbCd02mkykxMm1Gln7jr',
-        'NAME': 'blul1t7qvijlkeuv3xo2',
+        'HOST': os.environ.get("HOST"),
+        'PORT': os.environ.get("PORT"),
+        'USER': os.environ.get("USERNAME"),
+        'PASSWORD': os.environ.get("PASSWORD"),
+        'NAME': os.environ.get("NAME"), 
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
         }

@@ -2,3 +2,4 @@
 pem/__pycache__
 core/__pycache__
 pem/auth/__pycache__
+.env*
