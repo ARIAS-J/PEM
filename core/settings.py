@@ -81,9 +81,9 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': 'http://sql113.epizy.com/',
+        'HOST': 'sql113.epizy.com',
         'PORT': '3306',
-        'USER': 'sql113.epizy.com',
+        'USER': 'epiz_31087524',
         'PASSWORD': 'GWt6tJu3kWyD',
         'NAME': 'epiz_31087524_XXX',
         'OPTIONS': {
