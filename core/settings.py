@@ -81,11 +81,11 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': 'sql113.epizy.com',
+        'HOST': 'blul1t7qvijlkeuv3xo2-mysql.services.clever-cloud.com',
         'PORT': '3306',
-        'USER': 'epiz_31087524',
-        'PASSWORD': 'GWt6tJu3kWyD',
-        'NAME': 'epiz_31087524_XXX',
+        'USER': 'uycfwgklaczgxyan',
+        'PASSWORD': 'wbCd02mkykxMm1Gln7jr',
+        'NAME': 'blul1t7qvijlkeuv3xo2',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
         }
